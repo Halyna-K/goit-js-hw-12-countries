@@ -19,21 +19,21 @@ export default function onSearch(e) {
 
     fetchCountries(searchQuery)
     .then(data => {
-        if (data.length ===1) {
-         renderCountryCard(data)}
-        else
-        if ( data.length > 1 || data.length <= 10 ) {
-         renderCountryList(data)
-        }
-        else
         if (data.length > 10) {
-            alert({
+            error ({
                 text: 'Too many matches found. Please enter a more specific query!'
               })
          }
+        else
+        if ( data.length <= 10 || data.length > 1 ) {
+        renderCountryList(data)
+        }
+        else
+        if (data.length ===1) {
+        renderCountryCard(data)}
     })
     .catch (err=> {
-        error ({ text: "You must enter query parameters!"})}
+        alert ({ text: "You must enter query parameters!"})}
 
     )
 }
