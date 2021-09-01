@@ -25,11 +25,11 @@ export default function onSearch(e) {
               })
          }
         else
-        if ( data.length <= 10 || data.length > 1 ) {
+        if ( data.length <= 10 && data.length > 1 ) {
         renderCountryList(data)
         }
         else
-        if (data.length ===1) {
+        if (data.length === 1) {
         renderCountryCard(data)}
     })
     .catch (err=> {
